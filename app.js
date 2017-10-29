@@ -13,6 +13,22 @@ var station = require('./routes/station');
 
 var app = express();
 
+if(process.env.NODE_ENV){
+  console.log(`You are running in ${process.env.NODE_ENV} mode`);
+} else {
+  console.log(`You must define the node environment in the .env file`);
+  process.exit();
+}
+
+if(!process.env.TRANSPORT_API_KEY){ 
+  console.log(`You have not defined your Transport API Key`); 
+  process.exit();
+}
+if(!process.env.TRANSPORT_API_APPID){
+  console.log(`You have not defined your Transport API App ID`); 
+  process.exit();
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
