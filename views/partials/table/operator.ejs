@@ -1,0 +1,28 @@
+<% 
+    switch(operator){
+        case 'LM': %>
+        <span class="operator londonmidland"><%= operator_name %></span>
+        <% break;
+        case 'VT': %>
+        <span class="operator virgintrains"><%= operator_name %></span>
+        <% break;
+        case 'CS': %>
+        <span class="operator caledoniansleeper"><%= operator_name %></span>
+        <% break;
+        case 'LO': %>
+        <span class="operator londonoverground"><%= operator_name %></span>
+        <% break;
+        case 'NT': %>
+        <span class="operator northernrail"><%= operator_name %></span>
+        <% break;
+        case 'SR': %>
+        <span class="operator scotrail"><%= operator_name %></span>
+        <% break;
+	case 'TP': %>
+	<span class="operator transpennine"><%= operator_name %></span>
+	<% break;
+        default: %>
+        <%= operator_name %>
+        <% break;
+    }
+%>
