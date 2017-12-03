@@ -14,18 +14,23 @@ var station = require('./routes/station');
 var app = express();
 
 if(process.env.NODE_ENV){
-  console.log(`You are running in ${process.env.NODE_ENV} mode`);
+  switch(process.env.NODE_ENV){
+    case 'production':
+      console.log('\x1b[32m%s\x1b[0m', `You are running in production mode`);
+    default:
+      console.log('\x1b[33m%s\x1b[0m', `You are running in ${process.env.NODE_ENV} mode`);
+  }
 } else {
   console.log(`You must define the node environment in the .env file`);
   process.exit();
 }
 
 if(!process.env.TRANSPORT_API_KEY){ 
-  console.log(`You have not defined your Transport API Key`); 
+  console.error(`\x1b[31m%s\x1b[0m`, `You have not defined your Transport API Key`); 
   process.exit();
 }
 if(!process.env.TRANSPORT_API_APPID){
-  console.log(`You have not defined your Transport API App ID`); 
+  console.error(`\x1b[31m%s\x1b[0m`, `You have not defined your Transport API App ID`); 
   process.exit();
 }
 
