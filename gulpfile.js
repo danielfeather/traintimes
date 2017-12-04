@@ -14,7 +14,7 @@ let banner = ['/**',
   ' */',
   ''].join('\n');
 
-gulp.task('minify-css', () => {
+gulp.task('minify-css', ['scss'], () => {
  return gulp.src('./public/css/main.css')
    .pipe(cleanCSS({compatibility: 'ie8'}))
    .pipe(rename('main.min.css'))
@@ -38,4 +38,5 @@ gulp.task('serve', ['scss', 'copy-js'], function(){
     gulp.watch("./public/css/main.css", ['minify-css']);
 });
 
+gulp.task('build', ['minify-css', 'copy-js']);
 gulp.task('default', ['serve']);
