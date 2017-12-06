@@ -1,25 +1,32 @@
 <% 
     switch(operator){
         case 'LM': %>
-        <span class="operator londonmidland"><%= operator_name %></span>
+        <span class="operator uk-visible@s londonmidland"><%= operator_name %></span>
+        <span class="operator uk-hidden@s small londonmidland"><%= operator %></span>
         <% break;
         case 'VT': %>
-        <span class="operator virgintrains"><%= operator_name %></span>
+        <span class="operator uk-visible@s virgintrains"><%= operator_name %></span>
+        <span class="operator uk-hidden@s small virgintrains"><%= operator %></span>
         <% break;
         case 'CS': %>
-        <span class="operator caledoniansleeper"><%= operator_name %></span>
+        <span class="operator uk-visible@s caledoniansleeper"><%= operator_name %></span>
+        <span class="operator uk-hidden@s small caledoniansleeper"><%= operator %></span>
         <% break;
         case 'LO': %>
-        <span class="operator londonoverground"><%= operator_name %></span>
+        <span class="operator uk-visible@s londonoverground"><%= operator_name %></span>
+        <span class="operator uk-hidden@s small londonoverground" title="<%= operator_name %>" uk-tooltip="pos: right"><%= operator %></span>
         <% break;
         case 'NT': %>
-        <span class="operator northernrail"><%= operator_name %></span>
+        <span class="operator uk-visible@s northernrail"><%= operator_name %></span>
+        <span class="operator uk-hidden@s small northernrail"><%= operator %></span>
         <% break;
         case 'SR': %>
-        <span class="operator scotrail"><%= operator_name %></span>
+        <span class="operator uk-visible@s scotrail"><%= operator_name %></span>
+        <span class="operator uk-hidden@s small scotrail"><%= operator %></span>
         <% break;
-	case 'TP': %>
-	<span class="operator transpennine"><%= operator_name %></span>
+	    case 'TP': %>
+        <span class="operator uk-visible@s transpennine"><%= operator_name %></span>
+        <span class="operator uk-hidden@s small transpennine"><%= operator %></span>
 	<% break;
         default: %>
         <%= operator_name %>

@@ -16,7 +16,7 @@ router.get('/:station_code',function(req, res, next) {
     if (!error && !info.error && response.statusCode == 200) {
       // do more stuff
       res.render('index', { 
-          title: `Traintimes for ${info.station_name}`, 
+          title: `Traintimes`, 
           departures: info 
         });
     } else if(info.error) {

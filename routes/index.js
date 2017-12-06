@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
     if (!error && response.statusCode == 200) {
       var info = JSON.parse(body)
       // do more stuff
-      res.render('index', { title: `Traintimes for  ${info.station_name}`, departures: info });
+      res.render('index', { title: `Traintimes`, departures: info });
     }
   });
   

@@ -1,11 +1,13 @@
 <div class="uk-navbar-container">
-    <nav class=" uk-container uk-margin-bottom" uk-navbar>
-        <a class="uk-navbar-item uk-logo" href="#"><%= title %></a>
+    <nav class="uk-container uk-margin-bottom" uk-navbar>
+        <a class="uk-navbar-item uk-logo" href="#">
+            <%= title %>
+        </a>
         <div class="uk-navbar-right">
             <div class="uk-navbar-item">
                 <div class="uk-inline">
-                    <button id="searchSubmit" class="uk-button-secondary uk-form-icon uk-form-icon-flip"><span uk-icon="icon: search"></span></button>
-                    <input id="search" class="uk-input" placeholder="Station Code (e.g EUS)">
+                    <input id="search" class="uk-input uk-box-shadow-large tt-main-search uk-padding-small uk-padding-remove-vertical" placeholder="Station Code (e.g EUS)">
+                    <a id="searchSubmit" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"></a>
                 </div>
             </div>
         </div>

@@ -1,12 +1,22 @@
 // 1. Your custom variables and variable overwrites.
-
 @import "./modules/_colors";
+@import "./modules/_fonts";
+
+$logo-font-family: 'LatoWebBold';
+$logo-color: #fff;
+$logo-hover-color: #eee;
+$logo-font-size: 2.3rem;
+
+$navbar-background: linear-gradient(to right, #13547a 0%, #80d0c7 100%);
 
 // 2. Import default variables and available mixins.
 @import "../node_modules/uikit/src/scss/variables-theme.scss";
 @import "../node_modules/uikit/src/scss/mixins-theme.scss";
 
 // 3. Your custom mixin overwrites.
+.tt-main-search {
+     border-radius: 3px !important;
+}
 
 // 4. Import UIkit.
 @import "../node_modules/uikit/src/scss/uikit-theme.scss";

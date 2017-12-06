@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/main.min.css" />
     <style>
       .operator {
         display: block;
-        padding: 0.5em;
+        padding: 0.5rem;
         background-color: #ccc;
         text-align: center;
         border-radius: 3px;
+      }
+
+      .operator.small {
+        width: 1.5em;
+        height: 1.5em;
+        padding: 0.7rem;
+        display: inline-block;
+        border-radius: 100%;
       }
 
       .operator.virgintrains {
@@ -51,7 +60,7 @@
   <body>
     <%- include('./partials/header', {title: title}); %>
     <div class="uk-container">
-      <table class="uk-table uk-table-middle">
+      <table class="uk-table uk-table-small uk-table-middle">
         <thead>
             <tr>
                 <th>Due</th>
@@ -100,8 +109,14 @@
       $("#searchSubmit").click(function(event){
         event.preventDefault();
         code = $("#search").val();
-        console.log(code);
         window.location.href = `/station/${code}`;
+      });
+
+      $("#search").keyup(function(event){
+        if(event.which == 13){
+          code = $("#search").val();
+          window.location.href = `/station/${code}`;
+        }
       });
     </script>
   </body>
