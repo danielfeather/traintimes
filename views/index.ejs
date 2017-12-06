@@ -60,46 +60,49 @@
   <body>
     <%- include('./partials/header', {title: title}); %>
     <div class="uk-container">
-      <table class="uk-table uk-table-small uk-table-middle">
-        <thead>
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-small uk-table-middle">
+          <thead>
+              <tr>
+                  <th>Due</th>
+                  <th>Status</th>
+                  <th>Expected</th>
+                  <th>Platform</th>
+                  <th>Operator</th>
+                  <th>Service To</th>
+              </tr>
+          </thead>
+          <tbody>
+            <% 
+              departures.departures.all.forEach(function(item){
+            %>
             <tr>
-                <th>Due</th>
-                <th>Status</th>
-                <th>Expected</th>
-                <th>Platform</th>
-                <th>Operator</th>
-                <th>Service To</th>
+              <td><%= item.aimed_departure_time %></td>
+              <% if(item.status === "LATE"){ %>
+                <td style="color: red;"><span class="uk-margin-small-right" uk-icon="icon: history"></span> <%= item.status %></td>
+              <% } else if(item.status === "ON TIME") { %>
+                <td style="color: green;"><span class="uk-margin-small-right" uk-icon="icon: check"></span> <%= item.status %></td>
+              <% } else if(!item.status) { %>
+                <td>Unknown</td>
+              <% } else { %> 
+                <td><%= item.status %></td>
+              <% } %> 
+              <td><%= item.expected_departure_time %></td>
+              <td><%= item.platform %></td>
+              <td><%- include('partials/table/operator', {operator: item.operator, operator_name: item.operator_name}); %></td>
+              <td><%= item.destination_name %></td>
             </tr>
-        </thead>
-        <tbody>
-          <% 
-            departures.departures.all.forEach(function(item){
-          %>
-          <tr>
-            <td><%= item.aimed_departure_time %></td>
-            <% if(item.status === "LATE"){ %>
-              <td style="color: red;"><span class="uk-margin-small-right" uk-icon="icon: history"></span> <%= item.status %></td>
-            <% } else if(item.status === "ON TIME") { %>
-              <td style="color: green;"><span class="uk-margin-small-right" uk-icon="icon: check"></span> <%= item.status %></td>
-            <% } else if(!item.status) { %>
-              <td>Unknown</td>
-            <% } else { %> 
-              <td><%= item.status %></td>
-            <% } %> 
-            <td><%= item.expected_departure_time %></td>
-            <td><%= item.platform %></td>
-            <td><%- include('partials/table/operator', {operator: item.operator, operator_name: item.operator_name}); %></td>
-            <td><%= item.destination_name %></td>
-          </tr>
-          <%
-            });
-          %>
-            
-            <% if(!departures.departures.all.length){ %>
-              <% include ./partials/table/no-records %>
-            <% }; %>
-        </tbody>
-      </table>
+            <%
+              });
+            %>
+              
+              <% if(!departures.departures.all.length){ %>
+                <% include ./partials/table/no-records %>
+              <% }; %>
+          </tbody>
+        </table>
+      </div>
+      
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
