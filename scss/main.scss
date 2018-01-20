@@ -1,8 +1,9 @@
 // 1. Your custom variables and variable overwrites.
 @import "./modules/_colors";
 @import "./modules/_fonts";
+@import "./modules/_operators";
 
-$logo-font-family: 'LatoWebBold';
+$logo-font-family: 'LatoWebBold', sans-serif;
 $logo-color: #fff;
 $logo-hover-color: #eee;
 $logo-font-size: 2.3rem;
