@@ -227,6 +227,14 @@
   background-color: #00a7e7;
   color: #fff; }
 
+.operator.greatwesternrailway {
+  background-color: #0a493e;
+  color: #fff; }
+
+.operator.southern {
+  background-color: #80c242;
+  color: #fff; }
+
 .tt-main-search {
   border-radius: 3px !important; }
 

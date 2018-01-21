@@ -27,6 +27,14 @@
 	    case 'TP': %>
         <span class="operator uk-visible@s transpennine"><%= operator_name %></span>
         <span class="operator uk-hidden@s small transpennine"><%= operator %></span>
+        <% break;
+	    case 'SN': %>
+        <span class="operator uk-visible@s southern"><%= operator_name %></span>
+        <span class="operator uk-hidden@s small southern"><%= operator %></span>
+        <% break;
+	    case 'GW': %>
+        <span class="operator uk-visible@s greatwesternrailway"><%= operator_name %></span>
+        <span class="operator uk-hidden@s small greatwesternrailway"><%= operator %></span>
 	<% break;
         default: %>
         <%= operator_name %>
