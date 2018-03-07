@@ -34,8 +34,7 @@ gulp.task('copy-js', function(){
 });
 
 gulp.task('serve', ['scss', 'copy-js'], function(){
-    gulp.watch("./scss/**/*.scss", ['scss']);
-    gulp.watch("./public/css/main.css", ['minify-css']);
+    gulp.watch("./scss/**/*.scss", ['minify-css']);
 });
 
 gulp.task('build', ['minify-css', 'copy-js']);
