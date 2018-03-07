@@ -1,15 +1,12 @@
 <div class="uk-navbar-container">
     <nav class="uk-container uk-margin-bottom" uk-navbar>
-        <a class="uk-navbar-item uk-logo" href="#">
+        <a class="uk-navbar-item uk-logo" href="/">
             <%= title %>
+            <span class="uk-navbar-item tt-station-name">for <%= station_name %></span>
         </a>
+        
         <div class="uk-navbar-right">
-            <div class="uk-navbar-item">
-                <div class="uk-inline">
-                    <input id="search" class="uk-width-medium uk-input uk-box-shadow-large tt-main-search uk-padding-small uk-padding-remove-vertical" placeholder="Station Code (e.g EUS)">
-                    <a id="searchSubmit" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"></a>
-                </div>
-            </div>
+            <a class="uk-navbar-toggle uk-search-icon uk-icon" href="#modal-search" uk-search-icon uk-toggle="target: #searchBox"></a>
         </div>
     </nav>
 </div>

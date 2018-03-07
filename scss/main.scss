@@ -8,7 +8,9 @@ $logo-color: #fff;
 $logo-hover-color: #eee;
 $logo-font-size: 2.3rem;
 
-$navbar-background: linear-gradient(to right, #13547a 0%, #80d0c7 100%);
+$navbar-background: #273952;//linear-gradient(to right, #13547a 0%, #80d0c7 100%);
+
+$navbar-toggle-color: #B6FFF9;
 
 // 2. Import default variables and available mixins.
 @import "../node_modules/uikit/src/scss/variables-theme.scss";
@@ -21,4 +23,11 @@ $navbar-background: linear-gradient(to right, #13547a 0%, #80d0c7 100%);
 
 .tt-main-search {
     border-radius: 3px;
+}
+
+.tt-station-name {
+    font-family: 'LatoWebLight', sans-serif;
+    font-size: 0.8em;
+    font-style: italic;
+    color: #B6FFF9;
 }

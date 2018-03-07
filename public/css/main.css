@@ -3871,7 +3871,7 @@ ul.uk-nav-sub {
 /* Container
  ========================================================================== */
 .uk-navbar-container:not(.uk-navbar-transparent) {
-  background: linear-gradient(to right, #13547a 0%, #80d0c7 100%); }
+  background: #273952; }
 
 /*
  * Remove pseudo elements created by micro clearfix as precaution (if Container component is used)
@@ -4023,7 +4023,7 @@ ul.uk-nav-sub {
 /* Toggle
  ========================================================================== */
 .uk-navbar-toggle {
-  color: #999; }
+  color: #B6FFF9; }
 
 .uk-navbar-toggle:hover,
 .uk-navbar-toggle:focus,
@@ -9163,3 +9163,9 @@ iframe.uk-cover {
 
 .tt-main-search {
   border-radius: 3px; }
+
+.tt-station-name {
+  font-family: 'LatoWebLight', sans-serif;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #B6FFF9; }

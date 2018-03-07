@@ -14,9 +14,10 @@ router.get('/:station_code',function(req, res, next) {
   request(`https://transportapi.com/v3/uk/train/station/${stationCode}/live.json?app_key=${transportAPI_KEY}&app_id=${transportAPI_APPID}`, function (error, response, body) {
     var info = JSON.parse(body);
     if (!error && !info.error && response.statusCode == 200) {
-      // do more stuff
+      console.log(info);
       res.render('index', { 
-          title: `Traintimes`, 
+          title: `Traintimes`,
+          station_name: info.station_name,
           departures: info 
         });
     } else if(info.error) {
