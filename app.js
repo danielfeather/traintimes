@@ -1,39 +1,44 @@
 require('dotenv').config()
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var expressSanitizer = require('express-sanitizer');
-var helmet = require('helmet')
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const expressSanitizer = require('express-sanitizer');
+const helmet = require('helmet')
 
-var index = require('./routes/index');
-var station = require('./routes/station');
+const index = require('./routes/index');
+const station = require('./routes/station');
 
-var app = express();
+const app = express();
 
 if(process.env.NODE_ENV){
-  console.log(`You are running in ${process.env.NODE_ENV} mode`);
+  	switch(process.env.NODE_ENV){
+		case 'production':
+		console.log('\x1b[32m%s\x1b[0m', `You are running in production mode`);
+		default:
+		console.log('\x1b[33m%s\x1b[0m', `You are running in ${process.env.NODE_ENV} mode`);
+  	}
 } else {
-  console.log(`You must define the node environment in the .env file`);
-  process.exit();
+	console.log(`You must define the node environment in the .env file`);
+  	process.exit();
 }
 
 if(!process.env.TRANSPORT_API_KEY){ 
-  console.log(`You have not defined your Transport API Key`); 
-  process.exit();
+  	console.error(`\x1b[31m%s\x1b[0m`, `You have not defined your Transport API Key`); 
+  	process.exit();
 }
+
 if(!process.env.TRANSPORT_API_APPID){
-  console.log(`You have not defined your Transport API App ID`); 
-  process.exit();
+  	console.error(`\x1b[31m%s\x1b[0m`, `You have not defined your Transport API App ID`); 
+  	process.exit();
 }
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -43,6 +48,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 
+// Set route handlers
 app.use('/', index);
 app.use('/station', station);
 

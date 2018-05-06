@@ -1,12 +1,13 @@
-<nav class="uk-navbar-container uk-margin-bottom" uk-navbar>
-        <a class="uk-navbar-item uk-logo" href="#"><%= title %></a>
-    <div class="uk-navbar-right">
-        <div class="uk-navbar-item">
-            <form>
-                <input id="search" class="uk-input uk-form-width-small" type="text" size="3" placeholder="Station Code">
-                <button id="searchSubmit" class="uk-button uk-button-secondary">Check</button>
-            </form>
+<div class="uk-navbar-container">
+    <nav class="uk-container uk-margin-bottom" uk-navbar>
+        <a class="uk-navbar-item uk-logo" href="/">
+            <%= title %>
+            <span class="uk-navbar-item tt-station-name">for <%= station_name %></span>
+        </a>
+        
+        <div class="uk-navbar-right">
+            <a class="uk-navbar-toggle uk-search-icon uk-icon" href="#modal-search" uk-search-icon uk-toggle="target: #searchBox"></a>
         </div>
+    </nav>
+</div>
 
-    </div>
-</nav>
