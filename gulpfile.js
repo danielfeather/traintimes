@@ -3,7 +3,7 @@ let sass = require('gulp-sass');
 let rename = require('gulp-rename');
 let header = require('gulp-header');
 let cleanCSS = require('gulp-clean-css');
-let gulpCopy = require('gulp-copy');
+var clean = require('gulp-clean');
 
 let pkg = require('./package.json');
 let banner = ['/**',
@@ -15,14 +15,19 @@ let banner = ['/**',
   ''].join('\n');
 
 gulp.task('minify-css', ['scss'], () => {
- return gulp.src('./public/css/main.css')
+ return gulp.src('./public/css/site.css')
    .pipe(cleanCSS({compatibility: 'ie8'}))
-   .pipe(rename('main.min.css'))
+   .pipe(rename('site.min.css'))
    .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('scss', function(){
-    return gulp.src(`./scss/main.scss`)
+gulp.task('clean-public', function () {
+  return gulp.src(['./public/css/*', './public/js/*'], {read: false})
+    .pipe(clean());
+});
+
+gulp.task('scss', ['clean-public'], function(){
+    return gulp.src(`./scss/site.scss`)
         .pipe(sass().on('error', sass.logError))
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(gulp.dest('./public/css'));
