@@ -1,14 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const request = require('request');
-
-const transportAPI_KEY = process.env.TRANSPORT_API_KEY;
-const transportAPI_APPID = process.env.TRANSPORT_API_APPID;
+const config = require('../config');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  stationCode = 'LAN';
-  request(`https://transportapi.com/v3/uk/train/station/${stationCode}/live.json?app_key=${transportAPI_KEY}&app_id=${transportAPI_APPID}`, function (error, response, body) {
+router.get('/', (req, res, next) => {
+
+  request(`https://transportapi.com/v3/uk/train/station/LAN/live.json?app_key=${config.transportApi.key}&app_id=${config.transportApi.appid}`, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       const info = JSON.parse(body)
       // do more stuff
