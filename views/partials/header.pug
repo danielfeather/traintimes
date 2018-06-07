@@ -1,0 +1,7 @@
+.uk-navbar-container
+    nav.uk-container.uk-margin-bottom(uk-navbar)
+        a.uk-navbar-item.uk-logo(href="/")= title
+        span.uk-navbar-item.tt-station-name for #{station_name}
+        .uk-navbar-right
+            a.uk-navbar-toggle.uk-search-icon.uk-icon(href="#model-search" uk-search-icon uk-toggle="target: #searchBox")
+            

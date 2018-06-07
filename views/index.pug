@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(href="https://use.fontawesome.com/releases/v5.0.8/css/all.css", rel="stylesheet")
+        link(rel="stylesheet", href="/css/site.min.css")
+        title= title
+    body
+        include partials/header
+        .uk-container
+            .uk-overflow-auto
+                table.uk-table.uk-table-small.uk-table-middle
+                    thead
+                        tr
+                            th Due
+                            th Status
+                            th Expected
+                            th Platform
+                            th Operator
+                            th Service To
+                    tbody
+                        each train in departures.departures.all
+                            tr
+                                td= train.aimed_departure_time
+                                td= train.status
+                                td= train.expected_departure_time
+                                td= train.platform
+                                td= train.operator
+                                td= train.destination_name
+                        if(departures.departures.all.length == 0)
+                            include partials/table/no-records
+      
+        #searchBox(uk-modal)
+            .uk-modal-dialog.uk-modal-body
+                h2.uk-modal-title Station Code
+                input#search.uk-input.uk-margin-bottom(type="text",placeholder="LAN")
+                button#searchSubmit.uk-button.uk-button-secondary.uk-modal-close(type="button")
+
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="/js/uikit.min.js")
+    script(src="/js/uikit-icons.min.js")
+    script.
+
+      $("#searchSubmit").click(function(event){
+        event.preventDefault();
+        code = $("#search").val();
+        window.location.href = `/station/${code}`;
+      });
+
+      $("#search").keyup(function(event){
+        if(event.which === 13){
+          code = $("#search").val();
+          window.location.href = `/station/${code}`;
+        }
+      });
