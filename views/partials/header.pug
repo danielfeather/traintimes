@@ -1,7 +1,8 @@
 .uk-navbar-container
-    nav.uk-container.uk-margin-bottom(uk-navbar)
-        a.uk-navbar-item.uk-logo(href="/")= title
-            span.uk-navbar-item.tt-station-name for #{station_name}
+    nav(uk-navbar)
+        a.uk-navbar-toggle(href="#model-search", uk-icon="icon: menu" ,uk-toggle="target: #searchBox")
+        a.uk-navbar-item(href="/")= station_name
         .uk-navbar-right
-            a.uk-navbar-toggle(href="#model-search", uk-icon="icon: search" ,uk-toggle="target: #searchBox")
+            a.uk-navbar-toggle(href="#model-search", uk-icon="icon: location" , uk-toggle="target: #searchBox")
+            a.uk-navbar-toggle(href="#model-search", uk-icon="icon: search" , uk-toggle="target: #searchBox")
             
