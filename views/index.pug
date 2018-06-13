@@ -8,29 +8,43 @@ html(lang="en")
         link(rel="stylesheet", href="/css/site.min.css")
         title= title
     body
-        include partials/header
-        .uk-container
-            .uk-overflow-auto
-                table.uk-table.uk-table-small.uk-table-middle
-                    thead
-                        tr
-                            th Due
-                            th Status
-                            th Expected
-                            th Platform
-                            th Operator
-                            th Service To
-                    tbody
-                        each train in departures.departures.all
+        
+        div.uk-grid-collapse(uk-grid)
+            aside.uk-width-auto.uk-background-secondary(uk-height-viewport)
+                .uk-logo.uk-padding Traintimes
+                ul.uk-nav.uk-nav-primary
+                    li.uk-active
+                        a.uk-padding(href="#")
+                            span.uk-margin-right.uk-text-middle(uk-icon="rss")
+                            span.uk-text-middle Departures
+                    li.uk-nav-divider
+                        a.uk-padding.uk-disabled(href="#")
+                            span.uk-margin-right.uk-text-middle(uk-icon="location")
+                            span.uk-text-middle Stations
+
+            main.uk-width-expand
+                include partials/header
+                div.uk-table-responsive
+                    table.uk-table.uk-table-small.uk-table-middle.uk-overflow-auto.uk-table-divider
+                        thead
                             tr
-                                td= train.aimed_departure_time
-                                td= train.status
-                                td= train.expected_departure_time
-                                td= train.platform
-                                td= train.operator
-                                td= train.destination_name
-                        if(departures.departures.all.length == 0)
-                            include partials/table/no-records
+                                th Due
+                                th Status
+                                th Expected
+                                th Platform
+                                th Operator
+                                th Service To
+                        tbody
+                            each train in departures.departures.all
+                                tr
+                                    td= train.aimed_departure_time
+                                    td= train.status
+                                    td= train.expected_departure_time
+                                    td= train.platform
+                                    td= train.operator
+                                    td= train.destination_name
+                            if(departures.departures.all.length == 0)
+                                include partials/table/no-records
       
         #searchBox(uk-modal)
             .uk-modal-dialog.uk-modal-body
