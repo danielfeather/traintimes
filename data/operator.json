@@ -1,0 +1,10 @@
+{
+    "name": "TP",
+    "displayName": "TransPennine Express",
+    "decription": "TransPennine Express (legally known as First TransPennine Express Limited) is a British train operating company owned by FirstGroup operating the TransPennine Express franchise. It runs regular express regional railway, and intercity services between the major cities of Northern England as well as Scotland. The franchise operates all its services to and through Manchester covering three main routes. The service provides rail links for major towns and cities such as Edinburgh, Glasgow, Liverpool, Sheffield, Hull, Leeds, York, Scarborough, Middlesbrough and Newcastle. TransPennine Express runs trains 24 hours a day, including through New Year's Eve night. Trains run between York, Leeds and Manchester Airport at least every three hours every night of the week.",
+    "iconURL": "http://via.placeholder.com/64x64",
+    "page": "/operator/tp",
+    "brand": {
+        "color": "#00a7e7"
+    }
+}

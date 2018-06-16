@@ -8,24 +8,25 @@ html(lang="en")
         link(rel="stylesheet", href="/css/site.min.css")
         title= title
     body
-        
         div.uk-grid-collapse(uk-grid)
-            aside.uk-width-auto.uk-background-secondary(uk-height-viewport)
-                .uk-logo.uk-padding Traintimes
-                ul.uk-nav.uk-nav-primary
-                    li.uk-active
-                        a.uk-padding(href="#")
-                            span.uk-margin-right.uk-text-middle(uk-icon="rss")
-                            span.uk-text-middle Departures
-                    li.uk-nav-divider
-                        a.uk-padding.uk-disabled(href="#")
-                            span.uk-margin-right.uk-text-middle(uk-icon="location")
-                            span.uk-text-middle Stations
+            aside.uk-width-medium.uk-background-primary.tt-sidebar-border(uk-height-viewport)
+                div.uk-height-1-1(uk-sticky)
+                    .uk-logo.uk-padding Traintimes
+                    ul.uk-nav.uk-nav-primary
+                        li.uk-active
+                            a.uk-padding-horizontal(href="#")
+                                span.uk-margin-right.uk-text-middle(uk-icon="rss")
+                                span.uk-text-middle Departures
+                        li.uk-nav-divider
+                        li
+                            a.uk-padding.uk-disabled(href="#")
+                                span.uk-margin-right.uk-text-middle(uk-icon="location")
+                                span.uk-text-middle Stations
 
-            main.uk-width-expand
+            main.uk-width-expand(uk-height-viewport)
                 include partials/header
-                div.uk-table-responsive
-                    table.uk-table.uk-table-small.uk-table-middle.uk-overflow-auto.uk-table-divider
+                div
+                    table.uk-table.uk-table-small.uk-table-middle.uk-table-divider
                         thead
                             tr
                                 th Due
@@ -34,6 +35,7 @@ html(lang="en")
                                 th Platform
                                 th Operator
                                 th Service To
+                                th
                         tbody
                             each train in departures.departures.all
                                 tr
@@ -41,14 +43,16 @@ html(lang="en")
                                     td= train.status
                                     td= train.expected_departure_time
                                     td= train.platform
-                                    td= train.operator
+                                    td.uk-padding-remove= train.operator
                                     td= train.destination_name
+                                    th
+                                        a.uk-icon-link(uk-icon="more")
                             if(departures.departures.all.length == 0)
                                 include partials/table/no-records
       
         #searchBox(uk-modal)
-            .uk-modal-dialog.uk-modal-body
-                h2.uk-modal-title Station Code
+            .uk-modal-dialog.uk-modal-body.uk-background-primary.uk-border-rounded
+                h2.uk-modal-title.uk-light Station Code
                 input#search.uk-input.uk-margin-bottom(type="text",placeholder="LAN")
                 button#searchSubmit.uk-button.uk-button-secondary.uk-modal-close(type="button") Submit
 

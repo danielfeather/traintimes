@@ -21,12 +21,12 @@ gulp.task('minify-css', ['scss'], () => {
    .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('clean-public', function () {
-  return gulp.src(['./public/css/*', './public/js/*'], {read: false})
-    .pipe(clean());
-});
+// gulp.task('clean-public', function () {
+//   return gulp.src(['./public/css/*', './public/js/*'], {read: false})
+//     .pipe(clean());
+// });
 
-gulp.task('scss', ['clean-public'], function(){
+gulp.task('scss', function(){
     return gulp.src(`./scss/site.scss`)
         .pipe(sass().on('error', sass.logError))
         .pipe(header(banner, { pkg : pkg } ))
@@ -34,12 +34,15 @@ gulp.task('scss', ['clean-public'], function(){
 });
 
 gulp.task('copy-js', function(){
-    return gulp.src('./node_modules/uikit/dist/js/*.min.js')
+    return gulp.src([
+        './node_modules/uikit/dist/js/uikit.min.js',
+        './node_modules/uikit/dist/js/uikit-icons.min.js'
+    ], {base: './node_modules/uikit/dist/js/'})
         .pipe(gulp.dest('./public/js'));
 });
 
-gulp.task('serve', ['scss', 'copy-js'], function(){
-    gulp.watch("./scss/**/*.scss", ['minify-css']);
+gulp.task('serve', ['minify-css', 'copy-js'], function(){
+    gulp.watch("./scss/**/*.scss", ['minify-css', 'copy-js']);
 });
 
 gulp.task('build', ['minify-css', 'copy-js']);

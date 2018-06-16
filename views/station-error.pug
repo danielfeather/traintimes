@@ -11,15 +11,12 @@ html(lang="en")
             }
         title Error
     body
-        .page-container.uk-background-secondary
-            .uk-section
-                .uk-card.uk-card-default.uk-margin-auto(class='uk-width-1-3@m')
-                    .uk-card-header
-                        h3.uk-card-title Station Code Invalid 
-                            a.uk-link-text.uk-float-right(href='/')
-                                span.uk-margin-small-right(uk-icon='icon: home')
-                        .uk-card-body
-                            p error
+        .page-container.uk-background-primary
+            .uk-section.uk-padding
+                h1.uk-logo Traintimes
+                h2.uk-light Station Code Invalid
+                p.uk-light= error.charAt(0).toUpperCase()
+                            
         script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
         script(src="/js/uikit.min.js")
         script(src="/js/uikit-icons.min.js")

@@ -3,14 +3,21 @@
 @import "./modules/_fonts";
 @import "./modules/_operators";
 
+// Global Variables
+$global-color: #273952;
+$global-muted-color: #38556a;
+$global-primary-background: #273952;
+$global-secondary-background: #B6FFF9;
+
+// Logo Variables
 $logo-font-family: 'LatoWebBold', sans-serif;
 $logo-color: #fff;
 $logo-hover-color: #eee;
 $logo-font-size: 2.3rem;
 
-$navbar-background: #273952;//linear-gradient(to right, #13547a 0%, #80d0c7 100%);
-
-$navbar-toggle-color: #B6FFF9;
+// Navigation Variables
+$nav-item-padding-vertical: 0;
+$nav-item-padding-horizontal: 0;
 
 // 2. Import default variables and available mixins.
 @import "../node_modules/uikit/src/scss/variables-theme.scss";
@@ -21,13 +28,6 @@ $navbar-toggle-color: #B6FFF9;
 // 4. Import UIkit.
 @import "../node_modules/uikit/src/scss/uikit-theme.scss";
 
-.tt-main-search {
+.uk-button {
     border-radius: 3px;
-}
-
-.tt-station-name {
-    font-family: 'LatoWebLight', sans-serif;
-    font-size: 0.8em;
-    font-style: italic;
-    color: #B6FFF9;
 }
