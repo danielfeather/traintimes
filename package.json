@@ -32,6 +32,6 @@
     "gulp-copy": "^1.1.0",
     "gulp-header": "^1.8.12",
     "gulp-rename": "^1.2.3",
-    "gulp-sass": "^3.2.1"
+    "gulp-sass": "^4.0.2"
   }
 }
