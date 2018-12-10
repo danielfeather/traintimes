@@ -26,7 +26,7 @@
     "uikit": "^3.0.0-rc.5"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.9.4",
     "gulp-copy": "^1.1.0",
