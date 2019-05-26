@@ -17,7 +17,7 @@
     "debug": "~3.1.0",
     "dotenv": "^6.0.0",
     "ejs": "^2.5.9",
-    "express": "~4.16.2",
+    "express": "~4.17.1",
     "express-sanitizer": "^1.0.4",
     "helmet": "^3.12.1",
     "morgan": "~1.9.0",
