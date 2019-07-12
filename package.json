@@ -30,7 +30,7 @@
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.9.4",
     "gulp-copy": "^1.1.0",
-    "gulp-header": "^1.8.12",
+    "gulp-header": "^2.0.8",
     "gulp-rename": "^1.2.3",
     "gulp-sass": "^3.2.1"
   }
