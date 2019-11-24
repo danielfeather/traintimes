@@ -16,7 +16,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~3.1.0",
     "dotenv": "^6.0.0",
-    "ejs": "^2.5.9",
+    "ejs": "^3.0.1",
     "express": "~4.16.2",
     "express-sanitizer": "^1.0.4",
     "helmet": "^3.12.1",
