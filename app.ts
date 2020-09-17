@@ -1,24 +1,28 @@
-const config = require('./config');
-const express = require('express');
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+import { TransportApi } from './config';
+import {Application, NextFunction, Request, Response} from "express";
+import * as express from 'express'
+import * as path from 'path';
+import * as favicon from 'serve-favicon';
+import * as logger from 'morgan';
+import * as cookieParser from 'cookie-parser';
+import * as bodyParser from "body-parser";
+
 const expressSanitizer = require('express-sanitizer');
 const helmet = require('helmet')
 
-const index = require('./routes/index');
-const station = require('./routes/station');
+import index from './routes/index';
+import station from './routes/station';
 
 const app = express();
 
 if(process.env.NODE_ENV){
   	switch(process.env.NODE_ENV){
 		case 'production':
-		console.log('\x1b[32m%s\x1b[0m', `You are running in production mode`);
+			console.log('\x1b[32m%s\x1b[0m', `You are running in production mode`);
+			break;
 		default:
-		console.log('\x1b[33m%s\x1b[0m', `You are running in ${process.env.NODE_ENV} mode`);
+			console.log('\x1b[33m%s\x1b[0m', `You are running in ${process.env.NODE_ENV} mode`);
+			break;
   	}
 } else {
 	console.log(`You must define the node environment in the .env file`);
@@ -53,14 +57,14 @@ app.use('/', index);
 app.use('/station', station);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+app.use(function(req: Request, res: Response, next: NextFunction) {
+  const err: any = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err: any, req: Request, res: Response, next: NextFunction) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -70,4 +74,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+export default app
