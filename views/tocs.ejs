@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.min.css" />
+  </head>
+  <body>
+    <div class="uk-container">
+        <div class="uk-grid-small uk-child-width-1-3" uk-grid>
+            <% tocs.forEach(toc => { %>
+                <div>
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-header">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-auto">
+                                    <img class="uk-border-circle" width="40" height="40" src="<%= toc.Logo %>">
+                                </div>
+                                <div class="uk-width-expand">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom"><%= toc.Name %></h3>
+                                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                        <div class="uk-card-footer">
+                            <span class="uk-display-inline-block uk-label"><%= toc.AtocCode %></span>
+                            <a class="uk-button uk-button-link" href="<%= toc.CompanyWebsite %>">Website</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <div id="searchBox" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body">
+          <h2 class="uk-modal-title">Station Code</h2>
+          <input class="uk-input uk-margin-bottom" type="text" name="" id="search" placeholder="LAN">
+          <button class="uk-button uk-button-secondary uk-modal-close" type="button" id="searchSubmit">Submit</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/uikit.min.js"></script>
+    <script src="/js/uikit-icons.min.js"></script>
+    <script>
+
+      $("#searchSubmit").click(function(event){
+        event.preventDefault();
+        code = $("#search").val();
+        window.location.href = `/station/${code}`;
+      });
+
+      $("#search").keyup(function(event){
+        if(event.which === 13){
+          code = $("#search").val();
+          window.location.href = `/station/${code}`;
+        }
+      });
+
+    </script>
+  </body>
+</html>

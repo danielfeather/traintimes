@@ -12,6 +12,7 @@ const helmet = require('helmet')
 
 import index from './routes/index';
 import station from './routes/station';
+import tocs from './src/services/KB/tocs';
 
 const app = express();
 
@@ -55,6 +56,7 @@ app.use(helmet());
 // Set route handlers
 app.use('/', index);
 app.use('/station', station);
+app.use('/tocs', tocs)
 
 // catch 404 and forward to error handler
 app.use(function(req: Request, res: Response, next: NextFunction) {
