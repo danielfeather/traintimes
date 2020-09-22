@@ -6,7 +6,7 @@
     "outDir": "build",
     "removeComments": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "target": "es2017",
     "emitDecoratorMetadata": true,
     "moduleResolution": "node",
     "importHelpers": true,

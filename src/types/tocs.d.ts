@@ -9,17 +9,17 @@ interface TrainOperatingCompanyList {
 
 interface TrainOperatingCompany {
     $: object
-    AtocCode: Array<string>
-    AtocMember: Array<boolean>
+    AtocCode: string
+    AtocMember: string
     StationOperator: boolean
-    Name: Array<string>
-    LegalName: Array<string>
-    ManagingDirector: Array<string>
-    Logo: Array<string>
-    NetworkMap: Array<string>
+    Name: string
+    LegalName: string
+    ManagingDirector: string
+    Logo: string
+    NetworkMap: string
     OperatingPeriod: Array<object>
     HeadOfficeContactDetails: Array<object>
-    CompanyWebsite: Array<string>
+    CompanyWebsite: string
     SupportAndInformation: Array<object>
     TicketingAndFares: Array<object>
 }

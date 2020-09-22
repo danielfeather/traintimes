@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "private": false,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "ts-node ./bin/www.ts"
   },
-  "homepage": "https://mrfevs.github.io/traintimes/",
+  "homepage": "https://danielfeather.github.io/traintimes/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MrFevs/traintimes"
+    "url": "https://github.com/danielfeather/traintimes"
   },
   "license": "MIT",
   "dependencies": {
@@ -31,12 +31,16 @@
     "morgan": "^1.9.1",
     "request": "^2.88.2",
     "serve-favicon": "~2.5.0",
+    "soap": "^0.33.0",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2",
-    "uikit": "^3.0.0-rc.5",
+    "uikit": "^3.5.7",
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "laravel-mix": "^5.0.5"
+    "laravel-mix": "^5.0.5",
+    "resolve-url-loader": "^3.1.0",
+    "sass": "^1.26.11",
+    "sass-loader": "^8.0.2"
   }
 }

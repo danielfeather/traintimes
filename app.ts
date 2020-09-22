@@ -6,6 +6,7 @@ import * as favicon from 'serve-favicon';
 import * as logger from 'morgan';
 import * as cookieParser from 'cookie-parser';
 import * as bodyParser from "body-parser";
+import ldbws from './src/services/OpenLDBWS';
 
 const expressSanitizer = require('express-sanitizer');
 const helmet = require('helmet')
@@ -57,6 +58,11 @@ app.use(helmet());
 app.use('/', index);
 app.use('/station', station);
 app.use('/tocs', tocs)
+app.get('/ldbws/:crs', async function (req: express.Request, res: express.Response){
+	const departures = new ldbws()
+	await departures.init()
+	res.json(await departures.getDepartureBoard(req.params.crs))
+})
 
 // catch 404 and forward to error handler
 app.use(function(req: Request, res: Response, next: NextFunction) {
