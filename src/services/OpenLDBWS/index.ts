@@ -1,4 +1,5 @@
 import {createClientAsync} from 'soap'
+import {GetStationBoardResult} from "../../types/OpenLDBWS";
 
 /**
  * Provides methods to query information from Darwin through OpenLDBWS
@@ -18,21 +19,31 @@ export default class OpenLDBWS {
 
     }
 
-    async getDepartureBoard(crsCode: string){
+    async getDepartureBoard(crsCode: string): Promise<GetStationBoardResult> {
 
         try {
-            return await this.soapClient.GetDepartureBoardAsync({
+            const rawResponse: Array<any> = await this.soapClient.GetDepartureBoardAsync({
                 crs: crsCode.toUpperCase()
             })
+
+            return rawResponse[0]['GetStationBoardResult']
         } catch (e){
-            return e
+            throw e
         }
 
     }
 
-    getDepartureBoardWithDetails(crsCode: string){
+    async getDepBoardWithDetails(crsCode: string): Promise<GetStationBoardResult> {
 
+        try {
+            const rawResponse: Array<any> = await this.soapClient.GetDepBoardWithDetailsAsync({
+                crs: crsCode.toUpperCase()
+            })
 
+            return rawResponse[0]['GetStationBoardResult']
+        } catch (e){
+            throw e
+        }
 
     }
 

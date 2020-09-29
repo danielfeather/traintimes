@@ -14,6 +14,7 @@ const helmet = require('helmet')
 import index from './routes/index';
 import station from './routes/station';
 import tocs from './src/services/KB/tocs';
+import {GetStationBoardResult, Service} from "./src/types/OpenLDBWS";
 
 const app = express();
 
@@ -61,7 +62,8 @@ app.use('/tocs', tocs)
 app.get('/ldbws/:crs', async function (req: express.Request, res: express.Response){
 	const departures = new ldbws()
 	await departures.init()
-	res.json(await departures.getDepartureBoard(req.params.crs))
+	const rawResponse: GetStationBoardResult = await departures.getDepBoardWithDetails(req.params.crs)
+	res.json(rawResponse)
 })
 
 // catch 404 and forward to error handler
