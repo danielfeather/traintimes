@@ -6,7 +6,7 @@ import * as favicon from 'serve-favicon';
 import * as logger from 'morgan';
 import * as cookieParser from 'cookie-parser';
 import * as bodyParser from "body-parser";
-import ldbws from './src/services/OpenLDBWS';
+import Ldbws from './src/services/OpenLDBWS';
 
 const expressSanitizer = require('express-sanitizer');
 const helmet = require('helmet')
@@ -60,9 +60,16 @@ app.use('/', index);
 app.use('/station', station);
 app.use('/tocs', tocs)
 app.get('/ldbws/:crs', async function (req: express.Request, res: express.Response){
-	const departures = new ldbws()
+	const departures = new Ldbws()
 	await departures.init()
 	const rawResponse: GetStationBoardResult = await departures.getDepBoardWithDetails(req.params.crs)
+	res.json(rawResponse)
+})
+
+app.get('/ldbws/service/:serviceID', async function (req: express.Request, res: express.Response){
+	const departures = new Ldbws()
+	await departures.init()
+	const rawResponse = await departures.getServiceDetails(req.params.serviceID)
 	res.json(rawResponse)
 })
 

@@ -61,9 +61,23 @@ export default class OpenLDBWS {
 
     /**
      * Get the service details
-     * @param {string} crsCode
+     * @param {string} serviceID
      */
-    getServiceDetails(crsCode: string){
+    async getServiceDetails(serviceID: string){
+
+        try {
+
+            const rawResponse: Array<any> = await this.soapClient.GetServiceDetailsAsync({
+                serviceID
+            })
+
+            return rawResponse[0]
+
+        } catch (e){
+
+            throw e
+
+        }
 
     }
 

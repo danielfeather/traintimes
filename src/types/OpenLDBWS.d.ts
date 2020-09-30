@@ -4,9 +4,12 @@ export interface GetStationBoardResult {
     crs: string
     platformAvailable: boolean
     trainServices: TrainServices
-    subsequentCallingPoints?: {
-        callingPointList: CallingPointList
-    }
+}
+
+export interface GetServiceDetailsResult extends Service {
+    generatedAt: string
+    locationName: string
+    crs: string
 }
 
 export interface TrainServices {
@@ -27,6 +30,12 @@ export interface Service {
     }
     destination: {
         location: Array<Location>
+    }
+    previousCallingPoints?: {
+        callingPointList: CallingPointList
+    }
+    subsequentCallingPoints?: {
+        callingPointList: CallingPointList
     }
 }
 
